@@ -29,6 +29,8 @@ public class LogicTest {
 		 
 		 extent.createTest("TestName").pass("Test Passed");
 		 
+		 extent.createTest("TestName2").pass("Test Passed2");
+		 
 		 extent.flush();
 		
 //		reporter.
