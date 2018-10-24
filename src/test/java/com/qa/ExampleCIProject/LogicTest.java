@@ -4,28 +4,44 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import com.relevantcodes.extentreports.ExtentReports;
-import com.relevantcodes.extentreports.ExtentTest;
-import com.relevantcodes.extentreports.LogStatus;
+import com.aventstack.extentreports.ExtentReporter;
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+import com.aventstack.extentreports.reporter.ExtentXReporter;
+
+
 
 public class LogicTest {
 	
-	public ExtentReports report;
-	public ExtentTest test;
+//	public ExtentReports report;
+//	public ExtentTest test;
+//	public ExtentReporter reporter;
 	
 	@Test
 	public void playTest() {
 		
-		report = new ExtentReports(".\\BasicReport.html", true);
-
-		test = report.startTest("Verify application Title");
+		ExtentHtmlReporter html = new ExtentHtmlReporter("Extent.html");
+		 ExtentXReporter extentx = new ExtentXReporter("localhost");
+		 
+		 ExtentReports extent = new ExtentReports();
+		 extent.attachReporter(html, extentx);
+		 
+		 extent.createTest("TestName").pass("Test Passed");
+		 
+		 extent.flush();
 		
-		test.log(LogStatus.INFO, "Browser started");
-		
-		test.log(LogStatus.PASS, "verify Title of the page");
-		
-		report.endTest(test);
-		report.flush();
+//		reporter.
+//		
+//		report = new ExtentReports();
+//		
+//		report.attachReporter(reporter);
+//		
+//		test = report.createTest("Temp");
+//		
+//		test.info("Sup");
+//		
+//		report.flush();
 		
 		assertEquals(10,Logic.play(10,10));
 		
