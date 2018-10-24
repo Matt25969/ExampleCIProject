@@ -10,43 +10,32 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.aventstack.extentreports.reporter.ExtentXReporter;
 
-
-
 public class LogicTest {
-	
-//	public ExtentReports report;
-//	public ExtentTest test;
-//	public ExtentReporter reporter;
+
+	@Test
+	public void secondTest() {
+		
+		assertEquals(10, 10);
+		
+	}
 	
 	@Test
 	public void playTest() {
-		
+
 		ExtentHtmlReporter html = new ExtentHtmlReporter("Extent.html");
-		 ExtentXReporter extentx = new ExtentXReporter("localhost");
-		 
-		 ExtentReports extent = new ExtentReports();
-		 extent.attachReporter(html, extentx);
-		 
-		 extent.createTest("TestName").pass("Test Passed");
-		 
-		 extent.createTest("TestName2").pass("Test Passed2");
-		 
-		 extent.flush();
-		
-//		reporter.
-//		
-//		report = new ExtentReports();
-//		
-//		report.attachReporter(reporter);
-//		
-//		test = report.createTest("Temp");
-//		
-//		test.info("Sup");
-//		
-//		report.flush();
-		
-		assertEquals(10,Logic.play(10,10));
-		
+		ExtentXReporter extentx = new ExtentXReporter("localhost");
+
+		ExtentReports extent = new ExtentReports();
+		extent.attachReporter(html, extentx);
+
+		extent.createTest("TestName").pass("Test Passed");
+
+		extent.createTest("TestName2").pass("Test Passed2");
+
+		extent.flush();
+
+		assertEquals(10, Logic.play(10, 10));
+
 	}
 
 }
